@@ -8,17 +8,70 @@ body {
 }
 
 #overlay {
-  position: fixed; /* Sit on top of the page content */
-  display: none;
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
+    position: fixed;
+    /* Sit on top of the page content */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black background with opacity */
+    z-index: 2;
+    /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer;
+    /* Add a pointer on hover */
+}
+
+#image-big {
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 350px;
+    background-color: #99a1ad;
+    border: none;
+    outline: none;
+    border-radius: 16px;
+}
+
+.dialog-flex {
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    height: 24px;
+    width: 24px;
+    padding: 5px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #ab5962;
+    border-radius: 50%;
+}
+
+.btn-left-right {
+    display: flex;
+    gap: 250px;
+}
+
+.image-dialog {
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
+}
+
+.d_none {
+    display: none;
 }
 
 
@@ -58,16 +111,17 @@ header img {
     gap: 16px;
 }
 
-.photo-album img {
+.album {
     width: 80px;
     height: 80px;
     object-fit: cover;
     border-radius: 16px;
     transition: transform 0.3s ease;
     border: 1px solid transparent;
+    cursor: pointer;
 }
 
-.photo-album img:hover {
+.album:hover {
     border: solid 1.2px white;
     transform: scale(1.05);
 }
