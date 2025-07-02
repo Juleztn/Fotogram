@@ -32,6 +32,7 @@ let alt = [
 
 let container = document.getElementById('image-container');
 let dialog = document.getElementById('image-big');
+let screen = window.matchMedia("(max-width: 400px)");
 
 function init() {
     showImages();
@@ -82,7 +83,7 @@ function dialogTemplate(index) {
     return `<div class="dialog-flex"><img class="image-dialog" src="${images[index]}" alt=""> <span>${alt[index]}</span>         
             <div class="btn-left-right">
                 <img class="btn" onclick="previousImg(${index})" src="./img/arrow-left-solid.svg">
-                <p>Bild ${index + 1} / 13</p>
+                <p>${index + 1} / 13</p>
                 <img class="btn" onclick="nextImg(${index})" src="./img/arrow-right-solid.svg">
             </div> 
             </div>`;
