@@ -9,28 +9,21 @@ body {
 
 #overlay {
     position: fixed;
-    /* Sit on top of the page content */
     width: 100%;
-    /* Full width (cover the whole page) */
     height: 100%;
-    /* Full height (cover the whole page) */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Black background with opacity */
     z-index: 2;
-    /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer;
-    /* Add a pointer on hover */
 }
 
 #image-big {
     z-index: 3;
     position: absolute;
     top: 50%;
-    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     height: 350px;
     background-color: #99a1ad;
@@ -47,6 +40,11 @@ body {
     align-items: center;
 }
 
+.dialog-flex span {
+    margin-bottom: 48px;
+    font-size: 24px;
+}
+
 .btn {
     height: 24px;
     width: 24px;
@@ -55,19 +53,21 @@ body {
 
 .btn:hover {
     cursor: pointer;
-    background-color: #ab5962;
+    background-color: #707680;
     border-radius: 50%;
 }
 
 .btn-left-right {
     display: flex;
-    gap: 250px;
+    align-items: center;
+    gap: 100px;
 }
 
 .image-dialog {
     height: 200px;
     width: 300px;
     object-fit: cover;
+    filter: drop-shadow(2px 2px 2px black);
 }
 
 .d_none {
@@ -119,6 +119,7 @@ header img {
     transition: transform 0.3s ease;
     border: 1px solid transparent;
     cursor: pointer;
+    filter: drop-shadow(2px 2px 4px black);
 }
 
 .album:hover {
@@ -136,6 +137,90 @@ footer {
 
 footer img {
     width: 120px;
+}
+
+@media(max-width: 600px) {
+    header img {
+        width: 200px;
+    }
+
+    .album {
+        width: 72px;
+        height: 72px;
+    }
+
+    .photo-album h1 {
+        padding: 24px 0;
+    }
+
+    #image-big {
+        height: 300px;
+        width: 300px;
+    }
+
+    .image-dialog {
+        height: 150px;
+        width: 250px;
+    }
+
+    .dialog-flex {
+        height: 300px;
+    }
+
+    .btn-left-right {
+        gap: 72px;
+    }
+
+    .dialog-flex span {
+        margin-bottom: 32px;
+    }
+}
+
+@media(max-width: 450px) {
+    header img {
+        width: 150px;
+    }
+
+    .album {
+        width: 64px;
+        height: 64px;
+    }
+
+    .images {
+        gap: 12px;
+    }
+
+    .photo-album h1 {
+        font-size: 24px;
+        padding: 16px 0;
+    }
+
+    footer img {
+        width: 100px;
+    }
+
+    #image-big {
+        height: 250px;
+        width: 200px;
+    }
+
+    .image-dialog {
+        height: 100px;
+        width: 170px;
+    }
+
+    .dialog-flex {
+        height: 250px;
+    }
+
+    .btn-left-right {
+        gap: 24px;
+    }
+
+    .dialog-flex span {
+        margin-bottom: 16px;
+        font-size: 20px;
+    }
 }
 
 

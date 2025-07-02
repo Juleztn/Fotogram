@@ -14,6 +14,22 @@ let images = [
     './img/zebra.jpg'
 ]
 
+let alt = [
+    'Beagle',
+    'Rotmilan',
+    'Flamingo',
+    'Teichfrosch',
+    'Meerschweinchen',
+    'Pferd',
+    'Polarfuchs',
+    'Waschbär',
+    'Jemenchamäleon',
+    'Nashorn',
+    'Grüne Mamba',
+    'Wolf',
+    'Zebra'
+]
+
 let container = document.getElementById('image-container');
 let dialog = document.getElementById('image-big');
 
@@ -23,7 +39,7 @@ function init() {
 
 function showImages() {
     for (let i = 0; i < images.length; i++) {
-        container.innerHTML += `<img class="album" onclick="toggleOverlay(); showDialog(${i})" src="${images[i]}" alt="">`;
+        container.innerHTML += `<img class="album" onclick="toggleOverlay(); showDialog(${i})" src="${images[i]}" alt="${alt[i]}">`;
     }
 }
 
@@ -34,14 +50,40 @@ function toggleOverlay() {
 
 function showDialog(index) {
     dialog.show(index);
-    dialog.innerHTML = `<div class="dialog-flex"><img class="image-dialog" src="${images[index]}" alt="">         
-            <div class="btn-left-right">
-                <img class="btn" src="./img/arrow-left-solid.svg">
-                <img class="btn" src="./img/arrow-right-solid.svg">
-            </div> 
-            </div>`;
+    dialog.innerHTML = dialogTemplate(index);
 }
 
 function closeDialog() {
     dialog.close();
+}
+
+function previousImg(index) {
+    if (index > 0) {
+        index--;
+        dialog.innerHTML = dialogTemplate(index);
+    } else if (index == 0) {
+        index = 12;
+        dialog.innerHTML = dialogTemplate(index);
+    }
+}
+
+function nextImg(index) {
+    if (index < 12) {
+        index++;
+        dialog.innerHTML = dialogTemplate(index);
+    } else if (index == 12) {
+        index = 0;
+        dialog.innerHTML = dialogTemplate(index);
+    }
+
+}
+
+function dialogTemplate(index) {
+    return `<div class="dialog-flex"><img class="image-dialog" src="${images[index]}" alt=""> <span>${alt[index]}</span>         
+            <div class="btn-left-right">
+                <img class="btn" onclick="previousImg(${index})" src="./img/arrow-left-solid.svg">
+                <p>Bild ${index + 1} / 13</p>
+                <img class="btn" onclick="nextImg(${index})" src="./img/arrow-right-solid.svg">
+            </div> 
+            </div>`;
 }
